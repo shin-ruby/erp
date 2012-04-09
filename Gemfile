@@ -17,6 +17,8 @@ group :development do
   gem "nifty-generators"
 end
 
+gem 'pg'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
