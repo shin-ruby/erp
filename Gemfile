@@ -11,6 +11,12 @@ group :development,:test do
   gem 'sqlite3'
 end
 
+group :development do
+  gem 'rails-dev-boost'
+  gem 'mongrel'
+  gem "nifty-generators"
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
