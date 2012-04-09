@@ -1,0 +1,7 @@
+<h1>MM的作业</h1>
+<% @posts.each do |post| %>
+    <ul>
+      <li>项目主题:<%= link_to "#{post.title}", post_path(post.id) %>——完成时间:<%=post.end_date %>——发起人<%=post.author %></li>
+
+    </ul>
+<% end %>

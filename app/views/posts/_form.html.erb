@@ -1,0 +1,41 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :to_name, "收信人(曼曼代码[2]、云青代码[4]、Shin代码[7])" %><br />
+    <%= f.text_field :to_name ,:value=>"发送给曼曼和云青代码为6"%>
+  </div>
+  <div class="field">
+    <%= f.label :title, "项目主题：" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content, "项目内容：" %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :begin_date, "发起时间：" %><br />
+    <%= f.date_select :begin_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date, "结束时间：" %><br />
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :author, "发起人" %><br />
+    <%= f.text_field :author %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

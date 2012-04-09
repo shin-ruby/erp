@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>项目主题:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>项目内容:</b>
+  <%= @post.content %>
+</p>
+
+<p>
+  <b>发起时间:</b>
+  <%= @post.begin_date %>
+</p>
+
+<p>
+  <b>结束时间:</b>
+  <%= @post.end_date %>
+</p>
+
+<p>
+  <b>发起人:</b>
+  <%= @post.author %>
+</p>
+<hr />
+<h4>回复项目：</h4><br />
+<% @post.comments.each do |comment| %>
+    <p>
+
+      <%= comment.commenter %>
+      ——<%= comment.name %>
+      <%= link_to '删除', [comment.post, comment],
+                  :confirm => 'Are you sure?',
+                  :method => :delete %>
+    </p>
+<% end %>
+
+<%= form_for([@post, @post.comments.build]) do |f| %>
+
+    <div class="field">
+      <%= f.label :name, "姓名：" %><br/>
+      <%= f.text_field :name %>
+      <br/>
+      <%= f.label :commenter, "回复：" %>
+      <br/>
+      <%= f.text_area :commenter %>
+    </div>
+    <div class="actions">
+      <%= f.submit '回复' %>
+    </div>
+<% end %>
