@@ -1,8 +1,7 @@
 Erp::Application.routes.draw do
-  get "home/index"
-  get "home/mm"
-  get "home/yq"
-  get "home/shin"
+
+
+  resources :home
 
   resources :posts do
     resources :comments
